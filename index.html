@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <h3>LOGO</h3>
+            <a href="###">
+                <li>HOME</li>
+            </a>
+            <a href="###">
+                <li>PROMOTION</li>
+            </a>
+            <a href="###">
+                <li>INTRODUCE</li>
+            </a>
+            <a href="###">
+                <li>FEEDBACK</li>
+            </a>
+            <a href="###">
+                <li>SOCIAL MEDIA</li>
+            </a>
+            <a href="###">
+                <li>EXPERT</li>
+            </a>
+            <a href="###">
+                <li>CONTACT</li>
+            </a>
+        </ul>
+    </nav>
+    <section>
+        <div id="advertisement">
+            <div id="carousel" alt="carousel_advertisement">
+                <div class="container">
+                    <p>COLLECTION 2021</p>
+                    <H1>NICE TOYS</H1>
+                    <a href="###"><button>SHOPPING NOW</button></a>
+                </div>
+
+                <div class="slider">
+                    <div class="slider__wrapper">
+                        <div class="slider__main">
+                            <div class="slider__item">
+                                <img src="./slide1.jpg" alt="">
+                            </div>
+                            <div class="slider__item">
+                                <img src="./slide2.jpg" alt="">
+                            </div>
+                            <div class="slider__item">
+                                <img src="./slide3.jpg" alt="">
+                            </div>
+                            <div class="slider__item">
+                                <img src="./slide4.jpg" alt="">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="slider__controls">
+                        <button class="slider__control slider__control--prev">&lt;</button>
+                        <button class="slider__control slider__control--next">&gt;</button>
+                    </div>
+                </div>
+
+                <script>
+                    window.addEventListener("load", function () {
+                        const slider = document.querySelector(".slider")
+                        const sliderMain = document.querySelector(".slider__main")
+                        const sliderItem = document.querySelectorAll(".slider__item")
+
+                        const btnPrev = document.querySelector(".slider__control.slider__control--prev")
+                        const btnNext = document.querySelector(".slider__control.slider__control--next")
+
+                        const sliderItemWidth = sliderItem[0].offsetWidth;
+                        const lengthItem = sliderItem.length;
+                        const maxWidthItem = sliderItemWidth * lengthItem;
+                        let positionX = 0;
+                        let index = 1;
+
+                        console.log("lengthItem ->", lengthItem);
+
+                        btnNext.addEventListener("click", function () {
+                            handleChangeSlide({ next: true })
+                        })
+
+                        btnPrev.addEventListener("click", function () {
+                            handleChangeSlide({ prev: true })
+                        })
+
+                        function handleChangeSlide(option) {
+                            if (option.next) {
+                                index++;
+                                if (index <= lengthItem) {
+                                    positionX -= sliderItemWidth
+                                } else {
+                                    positionX = 0;
+                                    index = 1;
+                                }
+                                sliderMain.style = `transform: translateX(${positionX}px)`
+
+                            } else {
+                                index--;
+                                if (index >= 1) {
+                                    positionX += sliderItemWidth
+                                } else {
+                                    positionX = -(maxWidthItem - sliderItemWidth);
+                                    index = lengthItem;
+                                }
+                                sliderMain.style = `transform: translateX(${positionX}px)`
+                                console.log("index ->", index);
+                            }
+                        }
+
+                    })
+                </script>
+            </div>
+        </div>
+
+        <div class="mastercard">
+            <div class="card" id="card1">
+                <img src="./image1.jpg" alt="image1" width="100px;" height="100px">
+                <p>Đồ chơi</p>
+                <p>Amet magna esse nulla magna irure do consectetur.</p>
+                <div class="more">
+                    <a href="###""><button class=" cart1">Xem Thêm</button></a>
+                    <a href="./payment.html"><button class="cart2">Mua hàng</button></a>
+                </div>
+            </div>
+
+            <div class="card" id="card2">
+                <img src="./image2.jpg" alt="image2" width="100px;" height="100px">
+                <p>Đồ chơi</p>
+                <p>Amet magna esse nulla magna irure do consectetur.</p>
+                <div class="more">
+                    <a href="###""><button class=" cart1">Xem Thêm</button></a>
+                    <a href="./payment.html"><button class="cart2">Mua hàng</button></a>
+                </div>
+            </div>
+
+            <div class="card" id="card3">
+                <img src="./image3.jpg" alt="image3" width="100px;" height="100px">
+                <p>Đồ chơi</p>
+                <p>Amet magna esse nulla magna irure do consectetur.</p>
+                <div class="more">
+                    <a href="###""><button class=" cart1">Xem Thêm</button></a>
+                    <a href="./payment.html"><button class="cart2">Mua hàng</button></a>
+                </div>
+            </div>
+
+            <div class="card" id="card4">
+                <img src="./image4.jpg" alt="image4" width="100px;" height="100px">
+                <p>Đồ chơi</p>
+                <p>Amet magna esse nulla magna irure do consectetur.</p>
+                <div class="more">
+                    <a href="###""><button class=" cart1">Xem Thêm</button></a>
+                    <a href="./payment.html"><button class="cart2">Mua hàng</button></a>
+                </div>
+            </div>
+
+            <div class="card" id="card5">
+                <img src="./image5.jpg" alt="image5" width="100px;" height="100px">
+                <p>Đồ chơi</p>
+                <p>Amet magna esse nulla magna irure do consectetur.</p>
+                <div class="more">
+                    <a href="###""><button class=" cart1">Xem Thêm</button></a>
+                    <a href="./payment.html"><button class="cart2">Mua hàng</button></a>
+                </div>
+            </div>
+
+            <div class="card" id="card6">
+                <img src="./image6.jpg" alt="image1" width="100px;" height="100px">
+                <p>Đồ chơi</p>
+                <p>Amet magna esse nulla magna irure do consectetur.</p>
+                <div class="more">
+                    <a href="###""><button class=" cart1">Xem Thêm</button></a>
+                    <a href="./payment.html"><button class="cart2">Mua hàng</button></a>
+                </div>
+            </div>
+
+            <div class="card" id="card7">
+                <img src="./image7.jpg" alt="image1" width="100px;" height="100px">
+                <p>Đồ chơi</p>
+                <p>Amet magna esse nulla magna irure do consectetur.</p>
+                <div class="more">
+                    <a href="###""><button class=" cart1">Xem Thêm</button></a>
+                    <a href="./payment.html"><button class="cart2">Mua hàng</button></a>
+                </div>
+            </div>
+
+            <div class="card" id="card8">
+                <img src="./image8.jpg" alt="image1" width="100px;" height="100px">
+                <p>Đồ chơi</p>
+                <p>Amet magna esse nulla magna irure do consectetur.</p>
+                <div class="more">
+                    <a href="###""><button class=" cart1">Xem Thêm</button></a>
+                    <a href="./payment.html"><button class="cart2">Mua hàng</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="info">
+            <h3>ABOUT US</h3>
+            <p>Consectetur ad proident sint tempor deserunt minim occaecat
+                . Nulla voluptate consectetur quis officia anim veniam et consequat mollit est ea. Duis reprehenderit
+                veniam commodo non officia est sint pari.
+        </div>
+
+        <div class="info">
+            <h3>INFOMATION</h3>
+            <p>Id adipisicing ullamco tempor laborum.</p>
+        </div>
+
+        <div class="info">
+            <h3>MY ACCOUNT</h3>
+            <p>Aliqua excepteur nulla deserunt reprehenderit laborum proident exercitation duis.</p>
+        </div>
+
+        <div class="info">
+            <h3>OUR SERVICE</h3>
+            <p>Enim aliquip ex cillum pariatur mollit consequat duis exercitation quis consequat nostrud.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <h3>LOGO</h3>
+      <li><a href="index.html">HOME</a></li>
+      <li>PROMOTION</li>
+      <li>INTRODUCE</li>
+      <li>FEEDBACK</li>
+      <li>SOCIAL MEDIA</li>
+      <li>EXPERT</li>
+      <li>CONTACT</li>
+    </ul>
+  </nav>
+  <section>
+    <div class="page-header breadcrumb-wrap">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html" rel="nofollow">Trang chủ</a>
+          <span></span> giỏ hàng
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Ảnh</th>
+              <th>Tên sản phẩm</th>
+              <th>Giá</th>
+              <th>Số lượng</th>
+              <th>Tổng giá</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img class="product-image" src="./image1.jpg" alt="Product Image"></td>
+              <td>Sản phẩm 1</td>
+              <td>$10</td>
+              <td class="quantity-input">
+                <button class="quantity-button minus">-</button>
+                <input type="number" readonly min="1" value="1">
+                <button class="quantity-button plus">+</button>
+              </td>
+              <td>$20</td>
+            </tr>
+            <tr>
+              <td><img class="product-image" src="./image2.jpg" alt="Product Image"></td>
+              <td>Sản phẩm 2</td>
+              <td>$15</td>
+              <td class="quantity-input">
+                <button class="quantity-button minus">-</button>
+                <input type="number" readonly min="1" value="1">
+                <button class="quantity-button plus">+</button>
+              </td>
+              <td>$15</td>
+            </tr>
+            <tr>
+              <td><img class="product-image" src="./image3.jpg" alt="Product Image"></td>
+              <td>Sản phẩm 3</td>
+              <td>$8</td>
+              <td class="quantity-input">
+                <button class="quantity-button minus">-</button>
+                <input type="number" readonly min="1" value="1">
+                <button class="quantity-button plus">+</button>
+              </td>
+              <td>$24</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" class="">Total</td>
+              <td class="total-price">$33</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+    </div>
+
+  </section>
+
+  <article>
+    <div></div>
+  </article>
+  <aside></aside>
+  <footer>
+    <footer>
+      <div class="info">
+        <h3>ABOUT US</h3>
+        <p>Consectetur ad proident sint tempor deserunt minim occaecat
+          . Nulla voluptate consectetur quis officia anim veniam et consequat mollit est ea. Duis reprehenderit
+          veniam commodo non officia est sint pari.
+      </div>
+
+      <div class="info">
+        <h3>INFOMATION</h3>
+        <p>Id adipisicing ullamco tempor laborum.</p>
+      </div>
+
+      <div class="info">
+        <h3>MY ACCOUNT</h3>
+        <p>Aliqua excepteur nulla deserunt reprehenderit laborum proident exercitation duis.</p>
+      </div>
+
+      <div class="info">
+        <h3>OUR SERVICE</h3>
+        <p>Enim aliquip ex cillum pariatur mollit consequat duis exercitation quis consequat nostrud.</p>
+      </div>
+    </footer>
+  </footer>
+  <script>
+    var quantityButtons = document.getElementsByClassName('quantity-button');
+    for (var i = 0; i < quantityButtons.length; i++) {
+      quantityButtons[i].addEventListener('click', function () {
+        var input = this.parentNode.querySelector('input');
+        var currentValue = parseInt(input.value);
+
+        if (this.classList.contains('plus')) {
+          input.value = currentValue + 1;
+        } else if (this.classList.contains('minus')) {
+          input.value = currentValue - 1;
+        }
+
+        updateTotalPrice();
+      });
+    }
+
+    function updateTotalPrice() {
+      var rows = document.getElementsByTagName('tr');
+      var totalPrice = 0;
+
+      for (var i = 1; i < rows.length - 1; i++) {
+        var quantityInput = rows[i].querySelector('.quantity-input input');
+        var priceCell = rows[i].querySelector('td:nth-child(3)');
+        var totalCell = rows[i].querySelector('td:nth-child(5)');
+
+        var quantity = parseInt(quantityInput.value);
+        var price = parseFloat(priceCell.textContent.replace('$', ''));
+        var total = quantity * price;
+
+        totalCell.textContent = '$' + total.toFixed(2);
+        totalPrice += total;
+
+        if (quantity <= 0) {
+          rows[i].remove();
+        }
+      }
+
+      var totalPriceElement = document.querySelector('.total-price');
+      totalPriceElement.textContent = '$' + totalPrice.toFixed(2);
+    }
+  </script>
+</body>
+
+</html>
